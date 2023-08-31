@@ -1,0 +1,24 @@
+version: '3.9'
+
+services:
+  web_base:
+    build: ./
+    restart: unless-stopped
+    volumes:
+      - ./:/pass_bot
+      - ./mounts/logs:/web/logs
+      - ./mounts/cron:/cron/logs
+      - ./mounts/media:/web/media
+      - ./mounts/logs/uwsgi:/web/logs/uwsgi
+      - ./mounts/static:/web/static
+#      - ../local_settings_web.py:/pass_bot/src/conf/djconfig_local.py
+      - ./mounts/ipython_data:/root/.ipython/profile_default
+      - ./mounts/uwsgi:/web/uwsgi/
+    env_file:
+      - .env
+
+  web_celery_base:
+    extends:
+      service: web_base
+    environment:
+      C_FORCE_ROOT: 1
