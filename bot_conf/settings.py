@@ -227,7 +227,7 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = "files/media"
 # STATICFILES_DIRS = [os.path.join(BASE_DIR, "templates/staticfiles")]
 
-TELEGRAM_TOKEN = env.str('TELEGRAM_TOKEN', default='6337701253:AAECYqFdDWupr9-pToGGlJ7bEus_f-K5F94')
+TELEGRAM_TOKEN = env.str('TELEGRAM_TOKEN', default='token')
 MAIN_BOT_USERNAME = env.str('TELEGRAM_BOT_NAME', default='Pass_Zheleznogorsk_Bot')
 TELEGRAM_LOG = env.str('TELEGRAM_LOG', default='/logs/bot.log')
 
