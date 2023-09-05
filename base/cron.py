@@ -21,6 +21,7 @@ def _pass_downloaded(snils: str) -> list:
     session = requests.Session()
     session.headers.update(headers)
     r = session.get(url)
+    print(f'status cod to get csrf{r.status_code}')
     soup = BeautifulSoup(r.content, "html.parser")
     csrf = soup.find("input", {"name": "_csrf"})["value"]
     payload = {
@@ -31,6 +32,7 @@ def _pass_downloaded(snils: str) -> list:
         "SnilsForm[snils4]": snils_list[3],
     }
     r = session.post(url, data=payload)
+    print(f'status code to get data{r.status_code}')
     soup = BeautifulSoup(r.content, 'html.parser')
     tables = soup.find_all("table")
     for table in tables:
@@ -49,11 +51,13 @@ def _pass_downloaded(snils: str) -> list:
     return data
 
 
-def _get_data(snils_list):
+def _get_data(snils_list) -> list:
     data = []
     if snils_list:
         for snils in snils_list:
             data += _pass_downloaded(snils)
+    else:
+        print('snils list is empty')
     return data
 
 
@@ -120,6 +124,7 @@ def _comparison(new_pass, db_pass):
                 if (db_status_solution != person['status_solution'] or
                         not time_difference or
                         time_difference == 60):
+                    print('There are something new')
                     db_person.status_solution = person['status_solution']
                     db_person.bb_date = person['bb_date']
                     db_person.save()
@@ -140,6 +145,7 @@ def _comparison(new_pass, db_pass):
                         for rg_user in subscriptions_list:
                             send_message(rg_user, text)
     else:
+        print('error request')
         assert 'error request'
     # elif new_pass and not db_pass:
     #     # заполняем пустую базу
