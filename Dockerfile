@@ -83,7 +83,7 @@ RUN mkdir -p /cron/logs/ && touch /cron/logs/cronjob.log && chmod 766 /cron/logs
 RUN #crontab -l | { cat; echo "*/2 * * * * echo 'hellow'"; } | crontab -
 RUN crontab -l | { cat; echo "0 6-21/1 * * * cd /pass_bot && python manage.py runcrons  >> /cron/logs/cronjob.log 2>&1"; } | crontab -
 #CMD crontab -l > /pass_bot/cron_job/new_cron && echo "* * / 5 6 - 21 / 2 * * * /pass_bot/manage.py runcrons  >> /cron/logs/cronjob.log" >> /pass_bot/cron_job/new_cron && crontab /pass_bot/cron_job/new_cron
-
+RUN env >> /etc/environment
 
 CMD cron && tail -f /cron/logs/cronjob.log
 
