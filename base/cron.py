@@ -107,7 +107,7 @@ def _comparison(new_pass, db_pass):
             try:
                 db_person = db_pass.get(surname=person['surname'],
                                         name=person['initial_n'],
-                                        patronymic=['initial_p'])
+                                        patronymic=person['initial_p'])
             except Pass_User.DoesNotExist:
                 _create_user_in_db(person)
             else:
