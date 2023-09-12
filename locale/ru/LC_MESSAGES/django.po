@@ -2,13 +2,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-17 09:06+0700\n"
+"POT-Creation-Date: 2023-09-12 13:15+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,27 +20,27 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: base/forms.py:11
+#: base/forms.py:10
 msgid "SNILS"
 msgstr "СНИЛС"
 
-#: base/forms.py:34
+#: base/forms.py:33
 msgid "Subscriptions"
 msgstr "Подписки"
 
-#: base/forms.py:42
+#: base/forms.py:41
 msgid "pass"
 msgstr "Пропуска"
 
-#: base/forms.py:51
+#: base/forms.py:50
 msgid "find person"
 msgstr "Найти человека"
 
-#: base/forms.py:66
+#: base/forms.py:65
 msgid "Language"
 msgstr "Язык"
 
-#: base/forms.py:67
+#: base/forms.py:66
 msgid "Reminder"
 msgstr "Напоминание"
 
@@ -57,7 +57,8 @@ msgid ""
 "Also, i will remind you about the pass in advance so that you provide the "
 "documents.\n"
 "\n"
-"🔍 New search - to find by SNILS (Specified when submitting the application)\n"
+"🔍 New search - to find by SNILS (Specified when submitting the "
+"application)\n"
 "\n"
 "🗃️ Favorite - favorite pass list\n"
 msgstr ""
@@ -67,23 +68,24 @@ msgstr ""
 "Так же, я заранее напомню об окончании пропуска, что бы Вы своевременно "
 "подали документы.\n"
 "\n"
-"🔍 Новый поиск - позволит совершить поиск по СНИЛС (Указанный при подаче заявления)\n"
+"🔍 Новый поиск - позволит совершить поиск по СНИЛС (Указанный при подаче "
+"заявления)\n"
 "\n"
 "🗃️ Избранное - избранный список пропусков\n"
 
-#: base/views.py:56
+#: base/views.py:57
 msgid "🔍 New search"
 msgstr "🔍Новый поиск"
 
-#: base/views.py:59
+#: base/views.py:60
 msgid "🗃️ Favorite"
 msgstr "🗃️ Избранное"
 
-#: base/views.py:62
+#: base/views.py:63
 msgid "⚙️ Settings"
 msgstr "⚙️ Настройки"
 
-#: base/views.py:154
+#: base/views.py:155
 msgid ""
 "<b>SNILS does not work</b>\n"
 "Check the correctness of the data\n"
@@ -93,16 +95,16 @@ msgstr ""
 "Проверьте корректность данных\n"
 "\n"
 
-#: base/views.py:158 base/views.py:187 base/views.py:469 base/views.py:545
-#: base/views.py:607
+#: base/views.py:159 base/views.py:188 base/views.py:481 base/views.py:557
+#: base/views.py:619
 msgid "🔙 Back"
 msgstr "🔙 Назад"
 
-#: base/views.py:193
+#: base/views.py:194
 msgid "Found options:"
 msgstr "Найденные варианты"
 
-#: base/views.py:195
+#: base/views.py:196
 msgid ""
 "The search has not given any results. Check the correctness of the entered "
 "data\n"
@@ -111,87 +113,87 @@ msgstr ""
 "Поиск не дал результатов, проверти правильность введенных данных\n"
 "Либо ваших данных нет в базе данных."
 
-#: base/views.py:200
+#: base/views.py:201
 msgid "All list of pass:"
 msgstr "Полный список пропусков:"
 
-#: base/views.py:245 base/views.py:433 base/views.py:637
+#: base/views.py:249 base/views.py:445 base/views.py:649
 msgid "🔙 Return to list"
 msgstr "🔙 Назад к списку"
 
-#: base/views.py:250 base/views.py:572 base/views.py:579 base/views.py:643
+#: base/views.py:254 base/views.py:584 base/views.py:591 base/views.py:655
 msgid "Favorite"
 msgstr "Избранные"
 
-#: base/views.py:303
+#: base/views.py:307
 #, python-format
 msgid "The %(viewset_name)s  %(model_id)s is successfully deleted."
 msgstr ""
 
-#: base/views.py:304
+#: base/views.py:308
 #, python-format
 msgid "Are you sure you want to delete %(viewset_name)s  %(model_number)s?"
 msgstr "Вы уверенны, что хотите удалить %(viewset_name)s  %(model_number)s?"
 
-#: base/views.py:305
+#: base/views.py:309
 msgid "🗑 Yes, delete"
 msgstr "🗑 Да, удалить"
 
-#: base/views.py:306
+#: base/views.py:310
 #, python-format
 msgid ""
 "Please, fill the field %(label)s\n"
 "\n"
 msgstr ""
 
-#: base/views.py:307
+#: base/views.py:311
 #, python-format
 msgid ""
 "The %(viewset_name)s is created! \n"
 "\n"
 msgstr ""
 
-#: base/views.py:308
+#: base/views.py:312
 #, python-format
 msgid ""
 "While adding %(label)s the next errors were occurred: %(errors)s\n"
 "\n"
 msgstr ""
 
-#: base/views.py:309
+#: base/views.py:313
 #, python-format
 msgid ""
 "Please, write the value for field %(label)s \n"
 "\n"
 msgstr ""
 
-#: base/views.py:311
+#: base/views.py:315
 #, python-format
 msgid ""
 "The %(viewset_name)s %(model_id)s has not been found 😱 \n"
 "Please try again from the beginning."
 msgstr ""
 
-#: base/views.py:313
+#: base/views.py:317
 msgid "Leave blank"
 msgstr ""
 
-#: base/views.py:418
+#: base/views.py:430
 msgid ""
 "The field has been updated!\n"
 "\n"
 msgstr ""
 
-#: base/views.py:426
+#: base/views.py:438
 #, python-format
 msgid "SNILS № %(number)s  deleted successfully"
 msgstr "СНИЛС № %(number)s успешно удален"
 
-#: base/views.py:455
+#: base/views.py:467
 msgid "Choose from list or create new"
 msgstr "Выберите из списка недавних или создайте новый"
 
-#: base/views.py:458
+#: base/views.py:470
 msgid ""
 "There is nothing here yet\n"
 "Create a new search"
@@ -199,11 +201,11 @@ msgstr ""
 "Здесь пока что ничего нет.\n"
 "Создайте новый поиск"
 
-#: base/views.py:464
+#: base/views.py:476
 msgid "🔍 New"
 msgstr "🔍 Новый"
 
-#: base/views.py:487
+#: base/views.py:499
 msgid ""
 "Enter SNILS as solid number\n"
 "\n"
@@ -213,27 +215,27 @@ msgstr ""
 "\n"
 "(Без пробелов и каких либо разделяющих символов)"
 
-#: base/views.py:507
+#: base/views.py:519
 msgid "📃 Display the entire list"
 msgstr "📃 Вывести весь список"
 
-#: base/views.py:517
+#: base/views.py:529
 msgid "🕵🏼‍♂️ Find a person"
 msgstr "🕵🏼‍♂️ Найти человека"
 
-#: base/views.py:589
+#: base/views.py:601
 msgid "dont have value"
 msgstr ""
 
-#: base/views.py:597
+#: base/views.py:609
 msgid "dont have model"
 msgstr ""
 
-#: base/views.py:603
+#: base/views.py:615
 msgid "Favorite:"
 msgstr "Избранное"
 
-#: base/views.py:655
+#: base/views.py:667
 #, fuzzy
 #| msgid ""
 #| "⚙️ Settings\n"
@@ -245,11 +247,11 @@ msgstr ""
 "⚙️ Настройки\n"
 "\n"
 
-#: base/views.py:669 base/views.py:689
+#: base/views.py:681 base/views.py:701
 msgid "🔙 Main menu"
 msgstr "🔙 Главное меню"
 
-#: base/views.py:673
+#: base/views.py:685
 msgid ""
 "\n"
 "Reminder - How many days in advance to remind about the end of the pass"
@@ -257,7 +259,7 @@ msgstr ""
 "\n"
 "Напоминание - Количество дней за которое напомнить об окончании пропуска"
 
-#: base/views.py:681
+#: base/views.py:693
 #, python-format
 msgid ""
 "This func is able only in DEBUG mode. press /some_debug_functo see this "
@@ -265,11 +267,11 @@ msgid ""
 "features"
 msgstr ""
 
-#: bot_conf/settings.py:178
+#: bot_conf/settings.py:180
 msgid "Russian"
 msgstr "Русский"
 
-#: bot_conf/settings.py:179
+#: bot_conf/settings.py:181
 msgid "English"
 msgstr "Английский"
 
@@ -386,6 +388,302 @@ msgstr ""
 #: env/lib/python3.11/site-packages/celerybeat_status/templates/celerybeat_status/periodic_tasks_status_list.html:29
 msgid "Keyword Arguments:"
 msgstr ""
+
+#: env/lib/python3.11/site-packages/click/_termui_impl.py:518
+#, python-brace-format
+msgid "{editor}: Editing failed"
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/_termui_impl.py:522
+#, python-brace-format
+msgid "{editor}: Editing failed: {e}"
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/core.py:1120
+msgid "Aborted!"
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/core.py:1309
+#: env/lib/python3.11/site-packages/click/decorators.py:559
+msgid "Show this message and exit."
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/core.py:1340
+#: env/lib/python3.11/site-packages/click/core.py:1370
+#, python-brace-format
+msgid "(Deprecated) {text}"
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/core.py:1387
+#, fuzzy
+#| msgid "Subscriptions"
+msgid "Options"
+msgstr "Подписки"
+
+#: env/lib/python3.11/site-packages/click/core.py:1413
+#, python-brace-format
+msgid "Got unexpected extra argument ({args})"
+msgid_plural "Got unexpected extra arguments ({args})"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: env/lib/python3.11/site-packages/click/core.py:1429
+msgid "DeprecationWarning: The command {name!r} is deprecated."
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/core.py:1636
+msgid "Commands"
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/core.py:1668
+msgid "Missing command."
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/core.py:1746
+msgid "No such command {name!r}."
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/core.py:2310
+msgid "Value must be an iterable."
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/core.py:2331
+#, python-brace-format
+msgid "Takes {nargs} values but 1 was given."
+msgid_plural "Takes {nargs} values but {len} were given."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: env/lib/python3.11/site-packages/click/core.py:2778
+#, python-brace-format
+msgid "env var: {var}"
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/core.py:2808
+msgid "(dynamic)"
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/core.py:2821
+#, python-brace-format
+msgid "default: {default}"
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/core.py:2834
+msgid "required"
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/decorators.py:465
+#, python-format
+msgid "%(prog)s, version %(version)s"
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/decorators.py:528
+msgid "Show the version and exit."
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/exceptions.py:44
+#: env/lib/python3.11/site-packages/click/exceptions.py:80
+#, python-brace-format
+msgid "Error: {message}"
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/exceptions.py:72
+#, python-brace-format
+msgid "Try '{command} {option}' for help."
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/exceptions.py:121
+#, python-brace-format
+msgid "Invalid value: {message}"
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/exceptions.py:123
+#, python-brace-format
+msgid "Invalid value for {param_hint}: {message}"
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/exceptions.py:179
+msgid "Missing argument"
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/exceptions.py:181
+msgid "Missing option"
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/exceptions.py:183
+msgid "Missing parameter"
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/exceptions.py:185
+#, python-brace-format
+msgid "Missing {param_type}"
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/exceptions.py:192
+#, python-brace-format
+msgid "Missing parameter: {param_name}"
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/exceptions.py:212
+#, python-brace-format
+msgid "No such option: {name}"
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/exceptions.py:224
+#, python-brace-format
+msgid "Did you mean {possibility}?"
+msgid_plural "(Possible options: {possibilities})"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: env/lib/python3.11/site-packages/click/exceptions.py:262
+msgid "unknown error"
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/exceptions.py:269
+msgid "Could not open file {filename!r}: {message}"
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/parser.py:231
+msgid "Argument {name!r} takes {nargs} values."
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/parser.py:413
+msgid "Option {name!r} does not take a value."
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/parser.py:474
+msgid "Option {name!r} requires an argument."
+msgid_plural "Option {name!r} requires {nargs} arguments."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: env/lib/python3.11/site-packages/click/shell_completion.py:319
+msgid "Shell completion is not supported for Bash versions older than 4.4."
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/shell_completion.py:326
+msgid "Couldn't detect Bash version, shell completion is not supported."
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/termui.py:158
+msgid "Repeat for confirmation"
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/termui.py:174
+msgid "Error: The value you entered was invalid."
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/termui.py:176
+#, python-brace-format
+msgid "Error: {e.message}"
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/termui.py:187
+msgid "Error: The two entered values do not match."
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/termui.py:243
+msgid "Error: invalid input"
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/termui.py:773
+msgid "Press any key to continue..."
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/types.py:266
+#, python-brace-format
+msgid ""
+"Choose from:\n"
+"\t{choices}"
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/types.py:298
+msgid "{value!r} is not {choice}."
+msgid_plural "{value!r} is not one of {choices}."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: env/lib/python3.11/site-packages/click/types.py:392
+msgid "{value!r} does not match the format {format}."
+msgid_plural "{value!r} does not match the formats {formats}."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: env/lib/python3.11/site-packages/click/types.py:414
+msgid "{value!r} is not a valid {number_type}."
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/types.py:470
+#, python-brace-format
+msgid "{value} is not in the range {range}."
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/types.py:611
+msgid "{value!r} is not a valid boolean."
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/types.py:635
+msgid "{value!r} is not a valid UUID."
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/types.py:822
+msgid "file"
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/types.py:824
+msgid "directory"
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/types.py:826
+msgid "path"
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/types.py:877
+msgid "{name} {filename!r} does not exist."
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/types.py:886
+msgid "{name} {filename!r} is a file."
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/types.py:894
+#, python-brace-format
+msgid "{name} '{filename}' is a directory."
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/types.py:903
+msgid "{name} {filename!r} is not readable."
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/types.py:912
+msgid "{name} {filename!r} is not writable."
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/types.py:921
+msgid "{name} {filename!r} is not executable."
+msgstr ""
+
+#: env/lib/python3.11/site-packages/click/types.py:988
+#, python-brace-format
+msgid "{len_type} values are required, but {len_value} was given."
+msgid_plural "{len_type} values are required, but {len_value} were given."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: env/lib/python3.11/site-packages/django/contrib/messages/apps.py:15
 msgid "Messages"
@@ -1641,179 +1939,6 @@ msgstr ""
 msgid " By %(filter_title)s "
 msgstr ""
 
-#: env/lib/python3.11/site-packages/django_celery_results/admin.py:39
-msgid "Parameters"
-msgstr ""
-
-#: env/lib/python3.11/site-packages/django_celery_results/admin.py:46
-msgid "Result"
-msgstr ""
-
-#: env/lib/python3.11/site-packages/django_celery_results/apps.py:14
-msgid "Celery Results"
-msgstr ""
-
-#: env/lib/python3.11/site-packages/django_celery_results/models.py:29
-msgid "Task ID"
-msgstr ""
-
-#: env/lib/python3.11/site-packages/django_celery_results/models.py:30
-msgid "Celery ID for the Task that was run"
-msgstr ""
-
-#: env/lib/python3.11/site-packages/django_celery_results/models.py:33
-msgid "Task Name"
-msgstr ""
-
-#: env/lib/python3.11/site-packages/django_celery_results/models.py:34
-msgid "Name of the Task which was run"
-msgstr ""
-
-#: env/lib/python3.11/site-packages/django_celery_results/models.py:37
-msgid "Task Positional Arguments"
-msgstr ""
-
-#: env/lib/python3.11/site-packages/django_celery_results/models.py:38
-msgid "JSON representation of the positional arguments used with the task"
-msgstr ""
-
-#: env/lib/python3.11/site-packages/django_celery_results/models.py:42
-msgid "Task Named Arguments"
-msgstr ""
-
-#: env/lib/python3.11/site-packages/django_celery_results/models.py:43
-msgid "JSON representation of the named arguments used with the task"
-msgstr ""
-
-#: env/lib/python3.11/site-packages/django_celery_results/models.py:48
-msgid "Task State"
-msgstr ""
-
-#: env/lib/python3.11/site-packages/django_celery_results/models.py:49
-msgid "Current state of the task being run"
-msgstr ""
-
-#: env/lib/python3.11/site-packages/django_celery_results/models.py:52
-msgid "Worker"
-msgstr ""
-
-#: env/lib/python3.11/site-packages/django_celery_results/models.py:52
-msgid "Worker that executes the task"
-msgstr ""
-
-#: env/lib/python3.11/site-packages/django_celery_results/models.py:56
-#: env/lib/python3.11/site-packages/django_celery_results/models.py:187
-msgid "Result Content Type"
-msgstr ""
-
-#: env/lib/python3.11/site-packages/django_celery_results/models.py:57
-#: env/lib/python3.11/site-packages/django_celery_results/models.py:188
-msgid "Content type of the result data"
-msgstr ""
-
-#: env/lib/python3.11/site-packages/django_celery_results/models.py:60
-#: env/lib/python3.11/site-packages/django_celery_results/models.py:192
-msgid "Result Encoding"
-msgstr ""
-
-#: env/lib/python3.11/site-packages/django_celery_results/models.py:61
-#: env/lib/python3.11/site-packages/django_celery_results/models.py:193
-msgid "The encoding used to save the task result data"
-msgstr ""
-
-#: env/lib/python3.11/site-packages/django_celery_results/models.py:64
-#: env/lib/python3.11/site-packages/django_celery_results/models.py:197
-msgid "Result Data"
-msgstr ""
-
-#: env/lib/python3.11/site-packages/django_celery_results/models.py:65
-#: env/lib/python3.11/site-packages/django_celery_results/models.py:198
-msgid ""
-"The data returned by the task.  Use content_encoding and content_type fields "
-"to read."
-msgstr ""
-
-#: env/lib/python3.11/site-packages/django_celery_results/models.py:69
-#: env/lib/python3.11/site-packages/django_celery_results/models.py:177
-msgid "Created DateTime"
-msgstr ""
-
-#: env/lib/python3.11/site-packages/django_celery_results/models.py:70
-msgid "Datetime field when the task result was created in UTC"
-msgstr ""
-
-#: env/lib/python3.11/site-packages/django_celery_results/models.py:73
-#: env/lib/python3.11/site-packages/django_celery_results/models.py:182
-msgid "Completed DateTime"
-msgstr ""
-
-#: env/lib/python3.11/site-packages/django_celery_results/models.py:74
-msgid "Datetime field when the task was completed in UTC"
-msgstr ""
-
-#: env/lib/python3.11/site-packages/django_celery_results/models.py:77
-msgid "Traceback"
-msgstr ""
-
-#: env/lib/python3.11/site-packages/django_celery_results/models.py:78
-msgid "Text of the traceback if the task generated one"
-msgstr ""
-
-#: env/lib/python3.11/site-packages/django_celery_results/models.py:81
-msgid "Task Meta Information"
-msgstr ""
-
-#: env/lib/python3.11/site-packages/django_celery_results/models.py:82
-msgid ""
-"JSON meta information about the task, such as information on child tasks"
-msgstr ""
-
-#: env/lib/python3.11/site-packages/django_celery_results/models.py:92
-msgid "task result"
-msgstr ""
-
-#: env/lib/python3.11/site-packages/django_celery_results/models.py:93
-msgid "task results"
-msgstr ""
-
-#: env/lib/python3.11/site-packages/django_celery_results/models.py:130
-#: env/lib/python3.11/site-packages/django_celery_results/models.py:172
-msgid "Group ID"
-msgstr ""
-
-#: env/lib/python3.11/site-packages/django_celery_results/models.py:131
-msgid "Celery ID for the Chord header group"
-msgstr ""
-
-#: env/lib/python3.11/site-packages/django_celery_results/models.py:135
-msgid ""
-"JSON serialized list of task result tuples. use .group_result() to decode"
-msgstr ""
-
-#: env/lib/python3.11/site-packages/django_celery_results/models.py:141
-msgid "Starts at len(chord header) and decrements after each task is finished"
-msgstr ""
-
-#: env/lib/python3.11/site-packages/django_celery_results/models.py:173
-msgid "Celery ID for the Group that was run"
-msgstr ""
-
-#: env/lib/python3.11/site-packages/django_celery_results/models.py:178
-msgid "Datetime field when the group result was created in UTC"
-msgstr ""
-
-#: env/lib/python3.11/site-packages/django_celery_results/models.py:183
-msgid "Datetime field when the group was completed in UTC"
-msgstr ""
-
-#: env/lib/python3.11/site-packages/django_celery_results/models.py:218
-msgid "group result"
-msgstr ""
-
-#: env/lib/python3.11/site-packages/django_celery_results/models.py:219
-msgid "group results"
-msgstr ""
-
 #: env/lib/python3.11/site-packages/django_cron/admin.py:12
 msgid "duration"
 msgstr ""
@@ -1854,22 +1979,22 @@ msgstr ""
 msgid "< 1 second"
 msgstr ""
 
-#: env/lib/python3.11/site-packages/kombu/transport/qpid.py:1312
+#: env/lib/python3.11/site-packages/kombu/transport/qpid.py:1311
 #, python-format
 msgid "Attempting to connect to qpid with SASL mechanism %s"
 msgstr ""
 
-#: env/lib/python3.11/site-packages/kombu/transport/qpid.py:1317
+#: env/lib/python3.11/site-packages/kombu/transport/qpid.py:1316
 #, python-format
 msgid "Connected to qpid with SASL mechanism %s"
 msgstr ""
 
-#: env/lib/python3.11/site-packages/kombu/transport/qpid.py:1335
+#: env/lib/python3.11/site-packages/kombu/transport/qpid.py:1334
 #, python-format
 msgid "Unable to connect to qpid with SASL mechanism %s"
 msgstr ""
 
-#: env/lib/python3.11/site-packages/timezone_field/rest_framework.py:9
+#: env/lib/python3.11/site-packages/timezone_field/rest_framework.py:10
 msgid "A valid timezone is required."
 msgstr ""
 
