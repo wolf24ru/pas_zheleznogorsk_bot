@@ -38,7 +38,7 @@ def start(bot: TG_DJ_Bot, update: Update, user: User):
         "and, if necessary, notify of its change.\n"
         "\n"
         "Also, i will remind you about the pass in advance so that you provide the documents.\n\n"
-        "🔍 New search - to find by SNILS\n\n"
+        "🔍 New search - to find by SNILS (Specified when submitting the application)\n\n"
         "🗃️ Favorite - favorite pass list\n") +
                "\n\nБот находится в стадии разработки: возможно не своевременное обновление базы, перебои в работе")
     # _(
