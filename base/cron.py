@@ -68,35 +68,35 @@ def _date_transform(date: str) -> datetime:
 
 
 def send_message(rg_user: object, text: str):
-    user = User.objects.get(user=rg_user)
+    # user = User.objects.get(user=rg_user)
     bot = TG_DJ_Bot(TELEGRAM_TOKEN)
-    bot.send_message(user.id, text)
+    bot.send_message(rg_user.id, text)
 
 
 def _create_user_in_db(person):
     pass_users = Pass_User.objects.all()
     try:
-        pas_u = pass_users.get(surname=person['surname'],
-                               name=person['initial_n'],
-                               patronymic=person['initial_p'])
+        pass_u = pass_users.get(surname=person['surname'],
+                                name=person['initial_n'],
+                                patronymic=person['initial_p'])
     except Pass_User.DoesNotExist:
-        pas_u = Pass_User(
+        pass_u = Pass_User(
             surname=person['surname'],
             name=person['initial_n'],
             patronymic=person['initial_p'],
             status_solution=person['status_solution'],
             bb_date=_date_transform(person['bb_date']))
-        pas_u.save()
-        SNILS.objects.get(number=person['snils']).pass_user.add(pas_u)
+        pass_u.save()
+        SNILS.objects.get(number=person['snils']).pass_user.add(pass_u)
     else:
-        db_bb_date = pas_u.bb_date
+        db_bb_date = pass_u.bb_date
         new_bb_date = _date_transform(person['bb_date'])
         if new_bb_date and db_bb_date:
             time_difference = (new_bb_date - db_bb_date).day
             if time_difference:
-                pas_u.bb_date = new_bb_date
-                pas_u.status_solution = person['status_solution']
-                pas_u.save()
+                pass_u.bb_date = new_bb_date
+                pass_u.status_solution = person['status_solution']
+                pass_u.save()
 
 
 def _comparison(new_pass, db_pass):
@@ -114,7 +114,7 @@ def _comparison(new_pass, db_pass):
                 if person['bb_date']:
                     db_bb_date = db_person.bb_date
                     new_bb_date = _date_transform(person['bb_date'])
-                    time_difference = (new_bb_date - db_bb_date).day
+                    time_difference = (new_bb_date - db_bb_date).days
 
                 else:
                     # todo придумать что делать если пропуск уже кончился
@@ -122,13 +122,13 @@ def _comparison(new_pass, db_pass):
                     time_difference = 1
                 db_status_solution = db_person.status_solution
                 if (db_status_solution != person['status_solution'] or
-                        not time_difference or
+                        # time_difference == 0 or
                         time_difference == 60):
                     print('There are something new')
                     db_person.status_solution = person['status_solution']
-                    db_person.bb_date = person['bb_date']
+                    db_person.bb_date = _date_transform(person['bb_date'])
                     db_person.save()
-                    subscriptions_list = db_person.subscriptions.all()
+                    subscriptions_list = db_person.telegram_users.all()
                     # todo пока что так. потом придумать как запихивать
                     #  все изменения в одно сообщение. что бы пользователь
                     #  получал сообщение не по одному изменению, а все сразу
@@ -140,8 +140,8 @@ def _comparison(new_pass, db_pass):
                         text += (f'{db_person.surname}. {db_person.name}. {db_person.patronymic}\n'
                                  f'Статус: {db_person.status_solution}\n')
                         if db_person.bb_date:
-                            text += (f'Дата окончания пропуска {db_person.show_date}\n'
-                                     f'До окончания действия пропуска:{time_difference} дней')
+                            text += (f'Дата окончания пропуска {db_person.show_date()}\n'
+                                     f'До окончания действия пропуска:{(db_person.bb_date - datetime.now().date()).days} дней')
                         for rg_user in subscriptions_list:
                             send_message(rg_user, text)
     else:
