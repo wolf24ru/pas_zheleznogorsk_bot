@@ -172,7 +172,7 @@ class PassPersonViewSet(TelegramViewSet):
                     self.snils = snils
                     self.get_queryset()
                     if find_surname:
-                        self.queryset = self.queryset.filter(surname=find_surname)
+                        self.queryset = self.queryset.filter(surname=find_surname.rstrip())
                 else:
                     return self.snils_error(snils)
         except:
