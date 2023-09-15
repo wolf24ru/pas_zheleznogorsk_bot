@@ -111,39 +111,63 @@ def _comparison(new_pass, db_pass):
             except Pass_User.DoesNotExist:
                 _create_user_in_db(person)
             else:
-                if person['bb_date']:
+                new_bb_date_empty = False
+                if person['bb_date'] and db_person.bb_date:
                     db_bb_date = db_person.bb_date
                     new_bb_date = _date_transform(person['bb_date'])
                     time_difference = (new_bb_date - db_bb_date).days
-
+                    days_to_end = db_bb_date - datetime.now().date()
                 else:
                     # todo придумать что делать если пропуск уже кончился
                     #  и теперь кончается разрешение
-                    time_difference = 1
-                db_status_solution = db_person.status_solution
-                if (db_status_solution != person['status_solution'] or
-                        # time_difference == 0 or
-                        time_difference == 60):
-                    print('There are something new')
+                    time_difference = -1
+
+                    if db_person.bb_date:
+                        db_bb_date = db_person.bb_date
+                        days_to_end = db_bb_date - datetime.now().date()
+                        new_bb_date_empty = True
+                    elif person['bb_date']:
+                        new_bb_date = _date_transform(person['bb_date'])
+                        days_to_end = new_bb_date - datetime.now().date()
+                        db_bb_date_empty = True
+                    else:
+                        days_to_end = -1
+
+                status_change = db_person.status_solution == person['status_solution']
+
+                if time_difference == 0 and status_change:
+                    db_person.status_solution = person['status_solution']
+                if ((time_difference and status_change)
+                        or
+                        (not db_person.bb_date and
+                         person['bb_date'] and
+                         days_to_end and status_change)
+                        or
+                        (not time_difference and
+                         new_bb_date_empty and
+                         not days_to_end and
+                         status_change)):
                     db_person.status_solution = person['status_solution']
                     db_person.bb_date = _date_transform(person['bb_date'])
-                    db_person.save()
-                    subscriptions_list = db_person.telegram_users.all()
+                    print('There are something new')
+                db_person.save()
+                subscriptions_list = db_person.telegram_users.all()
                     # todo пока что так. потом придумать как запихивать
                     #  все изменения в одно сообщение. что бы пользователь
                     #  получал сообщение не по одному изменению, а все сразу
-                    if subscriptions_list:
-                        if time_difference != 60:
-                            text = f'По вашей подписки имеется обновление:\n'
-                        else:
-                            text = f'До окончания действия пропуска осталось 60 дней '
-                        text += (f'{db_person.surname}. {db_person.name}. {db_person.patronymic}\n'
-                                 f'Статус: {db_person.status_solution}\n')
-                        if db_person.bb_date:
-                            text += (f'Дата окончания пропуска {db_person.show_date()}\n'
-                                     f'До окончания действия пропуска:{(db_person.bb_date - datetime.now().date()).days} дней')
-                        for rg_user in subscriptions_list:
-                            send_message(rg_user, text)
+                if subscriptions_list:
+                    if days_to_end != 60:
+                        # todo придумать что сделать с этим местом. В данный момент бот должен напоминать о том что осталось 60 дней каждый раз как заходит сюда в течении всего дня
+                        text = f'По вашей подписки имеется обновление:\n'
+                    else:
+                        text = f'До окончания действия пропуска осталось 60 дней '
+                    text += (f'{db_person.surname}. {db_person.name}. {db_person.patronymic}\n'
+                             f'Статус: {db_person.status_solution}\n')
+                    if db_person.bb_date:
+                        text += (f'Дата окончания пропуска {db_person.show_date()}\n'
+                                 f'До окончания действия пропуска:{(db_person.bb_date - datetime.now().date()).days} дней')
+                    for rg_user in subscriptions_list:
+                        send_message(rg_user, text)
     else:
         print('error request')
         assert 'error request'
