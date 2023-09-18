@@ -120,6 +120,7 @@ def _comparison(new_pass, db_pass):
             else:
                 new_bb_date_empty = False
                 if person['bb_date'] and db_person.bb_date:
+                    print('lets-go in hera')
                     db_bb_date = db_person.bb_date
                     new_bb_date = _date_transform(person['bb_date'])
                     time_difference = (new_bb_date - db_bb_date).days
@@ -159,14 +160,15 @@ def _comparison(new_pass, db_pass):
                     db_person.status_solution = person['status_solution']
                     is_change = True
                 if np:
-                    print(f'{"-"*50}'
-                          f'time_difference = {bool(time_difference)}'
-                          f'status_change= {status_change}'
-                          f'db_person.bb_date_b = {bool(db_person.bb_date)}'
-                          f'person[bb_date]_b = {bool(person["bb_date"])}'
-                          f'days_to_end = {bool(days_to_end)}'
-                          f'new_bb_date_empty_b={bool(new_bb_date_empty)}'
-                          f'{"-"*50}')
+                    print(f'time_difference={time_difference}')
+                    print(f'{"-"*50}\n'
+                          f'time_difference = {bool(time_difference)}\n'
+                          f'status_change= {status_change}\n'
+                          f'db_person.bb_date_b = {bool(db_person.bb_date)}\n'
+                          f'person[bb_date]_b = {bool(person["bb_date"])}\n'
+                          f'days_to_end = {bool(days_to_end)}\n'
+                          f'new_bb_date_empty_b={bool(new_bb_date_empty)}\n'
+                          f'{"-"*50}\n')
                 if ((time_difference and status_change)
                         or
                         (not db_person.bb_date and
