@@ -112,6 +112,7 @@ def _comparison(new_pass, db_pass):
                                         patronymic=person['initial_p'])
                 if person['surname'] == 'ГУЛЯЕВ':
                     np = True
+                    print('*' * 50)
                     print(db_person)
                     print(f'db_person.date={db_person.bb_date}')
             except Pass_User.DoesNotExist:
@@ -134,6 +135,8 @@ def _comparison(new_pass, db_pass):
                         new_bb_date_empty = True
                         if np:
                             print(f'in Ilya have db_person.bb_date={db_person.bb_date}')
+                            print(f'days_to_end={days_to_end}')
+                            print(f'days_to_end_bool = {bool(days_to_end)}')
                     elif person['bb_date']:
                         if np:
                             print(f'person mast have {person["bb_date"]}')
