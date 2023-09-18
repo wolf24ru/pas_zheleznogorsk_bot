@@ -134,9 +134,10 @@ def _comparison(new_pass, db_pass):
                         days_to_end = -1
 
                 status_change = db_person.status_solution == person['status_solution']
-
+                is_change = False
                 if time_difference == 0 and status_change:
                     db_person.status_solution = person['status_solution']
+                    is_change = True
                 if ((time_difference and status_change)
                         or
                         (not db_person.bb_date and
@@ -149,13 +150,13 @@ def _comparison(new_pass, db_pass):
                          status_change)):
                     db_person.status_solution = person['status_solution']
                     db_person.bb_date = _date_transform(person['bb_date'])
-                    print('There are something new')
+                    is_change = True
                 db_person.save()
                 subscriptions_list = db_person.telegram_users.all()
                     # todo пока что так. потом придумать как запихивать
                     #  все изменения в одно сообщение. что бы пользователь
                     #  получал сообщение не по одному изменению, а все сразу
-                if subscriptions_list:
+                if subscriptions_list and is_change:
                     if days_to_end != 60:
                         # todo придумать что сделать с этим местом. В данный момент бот должен напоминать о том что осталось 60 дней каждый раз как заходит сюда в течении всего дня
                         text = f'По вашей подписки имеется обновление:\n'
