@@ -150,7 +150,7 @@ def _comparison(new_pass, db_pass):
                     else:
                         days_to_end = -1
 
-                status_change = db_person.status_solution == person['status_solution']
+                status_change = db_person.status_solution != person['status_solution']
                 if np:
                     print(f'status_change= {status_change}')
                 is_change = False
