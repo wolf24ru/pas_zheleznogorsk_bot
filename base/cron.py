@@ -103,8 +103,9 @@ def _comparison(new_pass, db_pass):
     """Сравнение новой записи и старой с дальнейшим изменением,
     в случае если её нет, то добавление в бд записи"""
     if new_pass:
-        np = False
         for person in new_pass:
+            np = False
+            status_change = False
             try:
                 db_person = db_pass.get(surname=person['surname'],
                                         name=person['initial_n'],
@@ -134,8 +135,13 @@ def _comparison(new_pass, db_pass):
                         if np:
                             print(f'in Ilya have db_person.bb_date={db_person.bb_date}')
                     elif person['bb_date']:
+                        if np:
+                            print(f'person mast have {person["bb_date"]}')
                         new_bb_date = _date_transform(person['bb_date'])
+                        if np:
+                            print(f'new_bb_date={new_bb_date}')
                         days_to_end = new_bb_date - datetime.now().date()
+                        print()
                         db_bb_date_empty = True
                         if np:
                             print(f'new_bb_date ={new_bb_date}')
