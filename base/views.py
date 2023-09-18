@@ -13,6 +13,7 @@ from telegram_django_bot.routing import telegram_reverse
 from telegram_django_bot.tg_dj_bot import TG_DJ_Bot
 
 from telegram import Update
+from datetime import datetime, timedelta
 
 from .forms import (SNILSForm, SubscriptionsForm, PassPersonForm,
                     FindPersonForm, UserFormNew)
@@ -145,8 +146,10 @@ class PassPersonViewSet(TelegramViewSet):
             return self.get_or_create_data(snils.id)
 
     def get_queryset(self):
+
         if self.snils:
-            self.queryset = self.queryset.filter(snils_pass_s__id=self.snils)
+            hundred_days_left = datetime.today() - timedelta(days=100)
+            self.queryset = self.queryset.filter(snils_pass_s__id=self.snils).exclude(bb_date__lt=hundred_days_left).order_by("-update_date")
             return self.queryset
         else:
             return self.queryset

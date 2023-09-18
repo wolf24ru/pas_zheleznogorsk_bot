@@ -27,6 +27,18 @@ class Pass_User(models.Model):
                                verbose_name="Дата окончания",
                                blank=True,
                                null=True)
+    update_date = models.DateField(db_comment="День обновления",
+                                   verbose_name="День обновления",
+                                   default=datetime.today(),
+                                   blank=True,
+                                   null=True)
+
+    def show_in_list(self):
+        days_left = (self.bb_date - datetime.now().date()).days
+        if days_left > 0:
+            return True
+        else:
+            return False
 
     def show_date(self):
         return f'{self.bb_date.day}.{self.bb_date.month}.{self.bb_date.year}'

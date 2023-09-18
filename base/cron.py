@@ -85,7 +85,8 @@ def _create_user_in_db(person):
             name=person['initial_n'],
             patronymic=person['initial_p'],
             status_solution=person['status_solution'],
-            bb_date=_date_transform(person['bb_date']))
+            bb_date=_date_transform(person['bb_date']),
+            update_date=datetime.today())
         pass_u.save()
         SNILS.objects.get(number=person['snils']).pass_user.add(pass_u)
     else:
@@ -138,6 +139,7 @@ def _comparison(new_pass, db_pass):
                 is_change = False
                 if time_difference == 0 and status_change:
                     db_person.status_solution = person['status_solution']
+                    db_person.update_date = datetime.today()
                     is_change = True
                 if ((time_difference > 0 and status_change)
                         or
@@ -149,6 +151,7 @@ def _comparison(new_pass, db_pass):
                          new_bb_date_empty and
                          not days_to_end and
                          status_change)):
+                    db_person.update_date = datetime.today()
                     db_person.status_solution = person['status_solution']
                     db_person.bb_date = _date_transform(person['bb_date'])
                     is_change = True
