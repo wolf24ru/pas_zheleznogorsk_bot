@@ -104,24 +104,16 @@ def _comparison(new_pass, db_pass):
     в случае если её нет, то добавление в бд записи"""
     if new_pass:
         for person in new_pass:
-            np = False
             status_change = False
             try:
                 db_person = db_pass.get(surname=person['surname'],
                                         name=person['initial_n'],
                                         patronymic=person['initial_p'])
-                if person['surname'] == 'ГУЛЯЕВ':
-                    np = True
-                    print('*' * 50)
-                    print(db_person)
-                    print(f'db_person.date={db_person.bb_date}')
             except Pass_User.DoesNotExist:
                 _create_user_in_db(person)
             else:
                 new_bb_date_empty = False
                 if person['bb_date'] and db_person.bb_date:
-                    if np:
-                        print('lets-go in hera')
                     db_bb_date = db_person.bb_date
                     new_bb_date = _date_transform(person['bb_date'])
                     time_difference = (new_bb_date - db_bb_date).days
@@ -135,23 +127,10 @@ def _comparison(new_pass, db_pass):
                         db_bb_date = db_person.bb_date
                         days_to_end = db_bb_date - datetime.now().date()
                         new_bb_date_empty = True
-                        if np:
-                            print(f'in Ilya have db_person.bb_date={db_person.bb_date}')
-                            print(f'days_to_end={days_to_end}')
-                            print(f'days_to_end_bool = {bool(days_to_end)}')
                     elif person['bb_date']:
-                        if np:
-                            print(f'person mast have {person["bb_date"]}')
                         new_bb_date = _date_transform(person['bb_date'])
-                        if np:
-                            print(f'new_bb_date={new_bb_date}')
                         days_to_end = new_bb_date - datetime.now().date()
-                        print()
                         db_bb_date_empty = True
-                        if np:
-                            print(f'new_bb_date ={new_bb_date}')
-                            print(f'days_to_end ={days_to_end}')
-
                     else:
                         days_to_end = -1
 
@@ -160,16 +139,6 @@ def _comparison(new_pass, db_pass):
                 if time_difference == 0 and status_change:
                     db_person.status_solution = person['status_solution']
                     is_change = True
-                if np:
-                    print(f'time_difference={time_difference}')
-                    print(f'{"-"*50}\n'
-                          f'time_difference = {bool(time_difference)}\n'
-                          f'status_change= {status_change}\n'
-                          f'db_person.bb_date_b = {bool(db_person.bb_date)}\n'
-                          f'person[bb_date]_b = {bool(person["bb_date"])}\n'
-                          f'days_to_end = {bool(days_to_end)}\n'
-                          f'new_bb_date_empty_b={bool(new_bb_date_empty)}\n'
-                          f'{"-"*50}\n')
                 if ((time_difference > 0 and status_change)
                         or
                         (not db_person.bb_date and
@@ -183,9 +152,6 @@ def _comparison(new_pass, db_pass):
                     db_person.status_solution = person['status_solution']
                     db_person.bb_date = _date_transform(person['bb_date'])
                     is_change = True
-                    if np:
-                        print('change now')
-                        print(f'db_person={db_person}')
                 db_person.save()
                 subscriptions_list = db_person.telegram_users.all()
                     # todo пока что так. потом придумать как запихивать
