@@ -199,7 +199,7 @@ def _comparison(new_pass, db_pass):
 
 
 class CheckPassUpdates(CronJobBase):
-    RUN_EVERY_MINS = 120
+    RUN_EVERY_MINS = 10
     schedule = Schedule(run_every_mins=RUN_EVERY_MINS)
     code = 'base.check_pass_updates'
 
