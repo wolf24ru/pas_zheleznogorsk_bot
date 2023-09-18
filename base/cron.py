@@ -103,11 +103,16 @@ def _comparison(new_pass, db_pass):
     """Сравнение новой записи и старой с дальнейшим изменением,
     в случае если её нет, то добавление в бд записи"""
     if new_pass:
+        np = False
         for person in new_pass:
             try:
                 db_person = db_pass.get(surname=person['surname'],
                                         name=person['initial_n'],
                                         patronymic=person['initial_p'])
+                if person['surname'] == 'ГУЛЯЕВ':
+                    np = True
+                    print(db_person)
+                    print(f'db_person.date={db_person.bb_date}')
             except Pass_User.DoesNotExist:
                 _create_user_in_db(person)
             else:
@@ -126,14 +131,22 @@ def _comparison(new_pass, db_pass):
                         db_bb_date = db_person.bb_date
                         days_to_end = db_bb_date - datetime.now().date()
                         new_bb_date_empty = True
+                        if np:
+                            print(f'in Ilya have db_person.bb_date={db_person.bb_date}')
                     elif person['bb_date']:
                         new_bb_date = _date_transform(person['bb_date'])
                         days_to_end = new_bb_date - datetime.now().date()
                         db_bb_date_empty = True
+                        if np:
+                            print(f'new_bb_date ={new_bb_date}')
+                            print(f'days_to_end ={days_to_end}')
+
                     else:
                         days_to_end = -1
 
                 status_change = db_person.status_solution == person['status_solution']
+                if np:
+                    print(f'status_change= {status_change}')
                 is_change = False
                 if time_difference == 0 and status_change:
                     db_person.status_solution = person['status_solution']
@@ -151,6 +164,9 @@ def _comparison(new_pass, db_pass):
                     db_person.status_solution = person['status_solution']
                     db_person.bb_date = _date_transform(person['bb_date'])
                     is_change = True
+                    if np:
+                        print('change now')
+                        print(f'db_person={db_person}')
                 db_person.save()
                 subscriptions_list = db_person.telegram_users.all()
                     # todo пока что так. потом придумать как запихивать
