@@ -149,7 +149,7 @@ class PassPersonViewSet(TelegramViewSet):
 
         if self.snils:
             hundred_days_left = datetime.today() - timedelta(days=100)
-            self.queryset = self.queryset.filter(snils_pass_s__id=self.snils).exclude(bb_date__lt=hundred_days_left).order_by("-update_date")
+            self.queryset = self.queryset.filter(snils_pass_s__id=self.snils).exclude(bb_date__lt=hundred_days_left).order_by("update_date")
             return self.queryset
         else:
             return self.queryset
